@@ -1,0 +1,96 @@
+<Page x:Class="WpfLibrary.Views.Cabinet"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Cabinet">
+    <Page.Resources>
+        <PathGeometry x:Key="geometryPath">
+            <PathFigure IsClosed="False" StartPoint="0, 0">
+                <PolyLineSegment Points="47,125 45,56" />
+            </PathFigure>
+        </PathGeometry>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Image Margin="5.2,0.7,-3.2,1.5" Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <Grid Margin="55,112,33,34.6" Height="310">
+            <Button x:Name="ButtonTakeBook" Content="Take a book" HorizontalAlignment="Left" VerticalAlignment="Top"  Width="142" Height="29" Click="ButtonTakeBook_Click"/>
+            <ListBox HorizontalAlignment="Right"  Width="476">
+                <ListBoxItem Content="Mybook1" Selected="ListBoxItem_Selected"/>
+            </ListBox>
+        </Grid>
+        <Canvas Margin="10,10,401,337">
+            <TextBlock HorizontalAlignment="Stretch"  Text="My cabinet" VerticalAlignment="Top" FontSize="20">
+                <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Page.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Top)"
+                                       Duration="0:0:1"
+                                       PathGeometry="{StaticResource geometryPath}" Source="Y" >
+                                </DoubleAnimationUsingPath>
+                                <DoubleAnimationUsingPath Storyboard.TargetProperty="(Canvas.Left)"
+                                       Duration="0:0:1"
+                                       PathGeometry="{StaticResource geometryPath}" Source="X" >
+                                </DoubleAnimationUsingPath>
+                                <DoubleAnimationUsingKeyFrames 
+                                    Storyboard.TargetProperty="(TextBlock.FontSize)"
+                                    Duration="0:0:1">
+                                    <LinearDoubleKeyFrame KeyTime="80%" Value="15"/>
+                                    <LinearDoubleKeyFrame KeyTime="95%" Value="30"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+            </TextBlock>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Right" Margin="0,65,235,0"  Text="My Books:" VerticalAlignment="Top" FontSize="20"/>
+
+    </Grid>
+</Page>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfLibrary.Views
+{
+    /// <summary>
+    /// Interaction logic for Cabinet.xaml
+    /// </summary>
+    public partial class Cabinet : Page
+    {
+        public Cabinet()
+        {
+            InitializeComponent();
+        }
+
+        private void ButtonTakeBook_Click(object sender, RoutedEventArgs e)
+        {
+            Catalogue catal = new Catalogue();
+            this.NavigationService.Navigate(catal);
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            BookReview mybook = new BookReview();
+            this.NavigationService.Navigate(mybook);
+        }
+    }
+}

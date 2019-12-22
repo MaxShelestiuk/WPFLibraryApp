@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfLibrary.Views.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Title="SignUp" Height="450" Width="800">
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <Grid Margin="221,10,195.6,76">
+            <StackPanel>
+                <TextBlock HorizontalAlignment="Stretch"   VerticalAlignment="Top" Text="Registration" FontSize="20"/>
+                <TextBlock Margin="0,10" Text="Name:" FontSize="14"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="0" TextWrapping="Wrap" Height="28"/>
+                <TextBlock Margin="0" Text="Surname:" FontSize="14"/>
+                <TextBox Margin="0" TextWrapping="Wrap" Height="28" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Margin="0" Text="Number:" FontSize="14"/>
+                <TextBox Margin="0"  TextWrapping="Wrap" Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}" Height="28"/>
+                <TextBlock Margin="0" Text="Login:" FontSize="14"/>
+                <TextBox Margin="0,2" TextWrapping="Wrap" Height="28" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Margin="0" Text="Password:" FontSize="14"/>
+                <PasswordBox Name="password" Margin="0" Height="28">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged" >
+                            <i:InvokeCommandAction Command="{Binding PasswordCommand}"
+                                           CommandParameter="{Binding ElementName=password, Mode=OneWay}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+            </StackPanel>
+            <Grid Height="28" VerticalAlignment="Bottom">
+                <Button x:Name="ButtonSignUp" Command="{Binding SignUp}" Content="Sign up"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" Height="26"/>
+                <Button x:Name="ButtonBack" Command="{Binding BackCommand}" Content="Back" RenderTransformOrigin="0.497,0.503" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

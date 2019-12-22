@@ -1,0 +1,28 @@
+<Page x:Class="WpfLibrary.Views.AdminAddBook"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminAddBook">
+
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill" d:IsLocked="True"/>
+        <Grid Margin="293,58,304,62.6" MaxWidth="400">
+            <Grid Margin="0,0,0,45" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" Margin="1,0,0,0" VerticalAlignment="Top" Text="Book" Width="202" FontSize="20"/>
+                <TextBox Margin="0,52,0,0"  Text="Enter name" VerticalAlignment="Top" Height="28" HorizontalAlignment="Stretch"/>
+                <TextBox Margin="0,101,0,0"  Text="Genre" Height="28" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <TextBox Margin="0,154,0,103" Text="Year" HorizontalAlignment="Stretch" Height="28"/>
+                <TextBox Margin="0,0,0,54" Text="Number of pages" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" />
+                <TextBox  TextWrapping="Wrap" Text="Image" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" />
+            </Grid>
+            <Grid Margin="1,305,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <Button x:Name="ButtonSave" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="24" Click="ButtonSave_Click"/>
+                <Button x:Name="ButtonBack" Content="Back"  Height="24" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="75" Click="ButtonBack_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

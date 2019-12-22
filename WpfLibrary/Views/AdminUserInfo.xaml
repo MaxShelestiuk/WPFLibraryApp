@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfLibrary.Views.AdminUserInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.Views"
+        mc:Ignorable="d"
+        Title="AdminUserInfo" Height="450" Width="800">
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <ListBox Margin="0,81,40,38.6" HorizontalAlignment="Right" Width="279"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,44,149,0" Text="Books" VerticalAlignment="Top" FontSize="18"/>
+        <Grid Margin="53,44,0,0" Height="366" HorizontalAlignment="Left" Width="263" VerticalAlignment="Top">
+            <Grid Margin="0,0,0,154" MaxWidth="280" Height="213">
+                <TextBox Margin="0,84,0,0" Text="Phone number" Height="28" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                <PasswordBox Password="Password" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="28"/>
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="User" Width="202" FontSize="18"/>
+                <TextBox Margin="0,37,0,0"  Text="Name" VerticalAlignment="Top" Height="28" HorizontalAlignment="Stretch"/>
+                <TextBox Margin="0,135,0,50" Text="Login" HorizontalAlignment="Stretch"  Height="28"/>
+            </Grid>
+            <Button Content="Back" HorizontalAlignment="Left" Width="114"  Height="34" VerticalAlignment="Bottom"/>
+        </Grid>
+    </Grid>
+</Window>

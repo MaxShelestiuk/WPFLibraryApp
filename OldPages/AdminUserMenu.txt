@@ -1,0 +1,85 @@
+<Page x:Class="WpfLibrary.Views.AdminUserMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminUserMenu">
+
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <Button x:Name="ButtonAdd" Content="Add" HorizontalAlignment="Left" Margin="88,99,0,0"  VerticalAlignment="Top" Width="114" Height="29" Click="ButtonAdd_Click">
+
+        </Button>
+        <ListBox Margin="0,99,40,38.6"  HorizontalAlignment="Right" Width="312">
+            <ListBoxItem Content="User 1" Selected="ListBoxItem_Selected"/>
+        </ListBox>
+        <Button x:Name="ButtonEdit" Content="Edit" HorizontalAlignment="Left" Margin="88,157,0,0" VerticalAlignment="Top" Width="114" Height="29" Click="ButtonEdit_Click"/>
+        <Button x:Name="ButtonDelete" Content="Delete" HorizontalAlignment="Left" Margin="88,214,0,0" VerticalAlignment="Top" Width="114" Height="29" Click="ButtonDelete_Click"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,71,167,0" Text="Users" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="87.6,0,0,38.8" Width="114.2" RenderTransformOrigin="0.497,0.503" Height="34.362" VerticalAlignment="Bottom" Click="ButtonBack_Click">
+
+        </Button>
+        <TextBlock HorizontalAlignment="Stretch" Margin="354,28,355,0" Text="User Menu" VerticalAlignment="Top" FontSize="18"/>
+    </Grid>
+</Page>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfLibrary.Views
+{
+    /// <summary>
+    /// Interaction logic for AdminUserMenu.xaml
+    /// </summary>
+    public partial class AdminUserMenu : Page
+    {
+        public AdminUserMenu()
+        {
+            InitializeComponent();
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            AdminAddUser adduserpage = new AdminAddUser();
+            this.NavigationService.Navigate(adduserpage);
+        }
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            AdminAddUser edituserpage = new AdminAddUser();
+            this.NavigationService.Navigate(edituserpage);
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User Deleted");
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPanel adminpage = new AdminPanel();
+            this.NavigationService.Navigate(adminpage);
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+            AdminUserInfo userinfopage = new AdminUserInfo();
+            this.NavigationService.Navigate(userinfopage);
+        }
+    }
+}

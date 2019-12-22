@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfLibrary.Views.SignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"     
+        xmlns:local="clr-namespace:WpfLibrary.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        mc:Ignorable="d"
+        Title="SignIn" Height="450" Width="800">
+    <Grid Margin="0,0,-0.4,-2">
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <Grid Margin="200,125,239,48">
+            <StackPanel VerticalAlignment="Top" Height="101">
+                <Label Content="Login:" HorizontalAlignment="Left" Margin="0,28,0,0" VerticalAlignment="Top" Width="111"/>
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="27" Width="354" Margin="0,0,-0.4,0"/>
+                <CheckBox x:Name="StuffCheck" Content="Stuff" Margin="0,5" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,106,0,21">
+                <Label Content="Password:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111"/>
+                <PasswordBox Name="password" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="27" Width="354" Margin="0,0,-0.4,0">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged" >
+                            <i:InvokeCommandAction Command="{Binding PasswordCommand}"
+                                           CommandParameter="{Binding ElementName=password, Mode=OneWay}"  />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+
+                <Label x:Name="Lbl1" Content="Enter special password:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="138" Visibility="Hidden"/>
+                <PasswordBox x:Name="AdminPasswordBox" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="27" Width="354" Visibility="Hidden" KeyDown="AdminPasswordBox_KeyDown">
+                    <PasswordBox.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding = "{Binding ElementName = StuffCheck, Path = IsChecked}" Value = "true">
+                                    <Setter Property="PasswordBox.Background"  Value="Salmon"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </PasswordBox.Style>
+                </PasswordBox>
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Stretch" Margin="118,0" VerticalAlignment="Top" Text="Sign in" FontSize="20"/>
+
+            <Grid Margin="0,221,-0.4,0.4">
+                <Button x:Name="Registration" Command="{Binding SignUpCommand}" Content="Registration" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="20" Width="91"  Background="#FFE5E5E5"/>
+                <Button x:Name="ButtonSignIn" Command="{Binding LoginCommand}" Style="{StaticResource ButtonAnimation}" Content="Sign in" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Height="20" Width="75" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+<Page x:Class="WpfLibrary.Views.AdminAuthorBookConnection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminAuthorBookConnection">
+
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill" d:IsLocked="True"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,76,109,0" Text="List of books:" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="ButtonBack" Content="Back" HorizontalAlignment="Left" Margin="29.2,0,0,25.2"  Width="114.2" RenderTransformOrigin="0.497,0.503" Height="34.362" VerticalAlignment="Bottom" Click="ButtonBack_Click">
+
+        </Button>
+        <TextBlock HorizontalAlignment="Stretch" Margin="240,31,243,0"  Text="Connecting authors to books" VerticalAlignment="Top" FontSize="24" Height="37"/>
+        <ListBox HorizontalAlignment="Right" Margin="0,104,23,29.6"  Width="292" >
+            <ListBoxItem Content ="Book1"/>
+        </ListBox>
+        <ComboBox HorizontalAlignment="Left" Margin="29,105,0,0" VerticalAlignment="Top" Width="227">
+            <ComboBoxItem Content="Author 1" HorizontalAlignment="Left" Width="203.2"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="29,76,0,0" Text="Select author" VerticalAlignment="Top" FontSize="18"/>
+        <Grid Margin="267,191,333,176.6" Width="200">
+            <Button x:Name="ButtonAssign" Content="assign"  VerticalAlignment="Top" Height="29" Click="ButtonAssign_Click"/>
+            <Button x:Name="ButtonDelCon" Content="delete connection" VerticalAlignment="Bottom" Height="30" Click="ButtonDelCon_Click"/>
+        </Grid>
+    </Grid>
+</Page>

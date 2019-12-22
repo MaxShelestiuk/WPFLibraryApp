@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfLibrary.Views.AdminAddUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLibrary.Views"
+        mc:Ignorable="d"
+        Title="AdminAddUser" Height="450" Width="800">
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill"/>
+        <Grid Margin="207,58,204.6,65">
+            <TextBlock HorizontalAlignment="Stretch" Margin="0,87,185,0" VerticalAlignment="Top" Text="Enter your phone number:" FontSize="14"/>
+            <TextBox Margin="0,105,0,0" TextWrapping="Wrap" Text="Phone number" Height="28" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Stretch" Margin="0,210,243,0" VerticalAlignment="Top" Text="Enter your password:" FontSize="14"/>
+            <PasswordBox Margin="0,0,0,39" Password="Password" VerticalAlignment="Bottom" Height="28"/>
+            <TextBlock HorizontalAlignment="Stretch" Margin="135,0,146,0" VerticalAlignment="Top" Text="User Adding" FontSize="18"/>
+            <TextBlock HorizontalAlignment="Stretch" Margin="0,35,245,0" VerticalAlignment="Top" Text="Enter your name:" FontSize="14"/>
+            <TextBox Margin="0,54,0,0" TextWrapping="Wrap" Text="Enter your name" VerticalAlignment="Top" Height="28"/>
+            <TextBlock HorizontalAlignment="Stretch" Margin="0,146,244,0" VerticalAlignment="Top" Text="Enter your login:" FontSize="14"/>
+            <TextBox Margin="0,170,0,99" HorizontalAlignment="Stretch" Text="Enter your login" Height="28"/>
+            <Button x:Name="ButtonSave" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="25"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,98 @@
+<Page x:Class="WpfLibrary.Views.AdminPanel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfLibrary.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPanel">
+
+    <Grid>
+        <Image Source="pack://application:,,,/Content/Backgrounds/images.jpg" Stretch="Fill" d:IsLocked="True"/>
+        <TextBlock HorizontalAlignment="Center" Margin="348,42,348,0"  Text="Admin panel" VerticalAlignment="Top" FontSize="18"/>
+        <Grid Margin="27,117,597,43.6" Height="289">
+            <Grid Margin="0,0,0,93">
+                <Button x:Name="ButtonUsersMenu" Content="Users Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="176" Height="39" Click="ButtonUsersMenu_Click"/>
+                <Button x:Name="ButtonBookMenu" Content="Books Menu"   VerticalAlignment="Center" Height="39" HorizontalAlignment="Left" Width="176" Click="ButtonBookMenu_Click"/>
+                <Button x:Name="ButtonAuthorMenu" Content="Author Menu"  VerticalAlignment="Bottom" Height="39" HorizontalAlignment="Left" Width="176" Click="ButtonAuthorMenu_Click"/>
+            </Grid>
+            <Button x:Name="ButtonBack" Content="Back" HorizontalAlignment="Left"  Width="114"  Height="34" VerticalAlignment="Bottom" Click="ButtonBack_Click"/>
+        </Grid>
+        <Grid Margin="550,118,28,136.6" Height="195">
+            <Button x:Name="ButtonConAutBook" Content="Connect Authors to Books" HorizontalAlignment="Right" Width="222" Height="38" VerticalAlignment="Center" Click="ButtonConAutBook_Click"/>
+            <Button x:Name="ButtonToCabinet" Content="To Main page"  VerticalAlignment="Top" Height="38" HorizontalAlignment="Right" Width="176" Click="ButtonToCabinet_Click"/>
+            <Button x:Name="ButtonOrders" Content="Orders" VerticalAlignment="Bottom" Height="39" HorizontalAlignment="Right" Width="176" Click="ButtonOrders_Click"/>
+        </Grid>
+    </Grid>
+</Page>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WpfLibrary.Views
+{
+    /// <summary>
+    /// Interaction logic for AdminPanel.xaml
+    /// </summary>
+    public partial class AdminPanel : Page
+    {
+        public AdminPanel()
+        {
+            InitializeComponent();
+        }
+
+        private void ButtonUsersMenu_Click(object sender, RoutedEventArgs e)
+        {
+            AdminUserMenu usermenu = new AdminUserMenu();
+            this.NavigationService.Navigate(usermenu);
+        }
+
+        private void ButtonBookMenu_Click(object sender, RoutedEventArgs e)
+        {
+            AdminBookMenu bookmenu = new AdminBookMenu();
+            this.NavigationService.Navigate(bookmenu);
+        }
+
+        private void ButtonAuthorMenu_Click(object sender, RoutedEventArgs e)
+        {
+            AdminAuthorMenu autmenu = new AdminAuthorMenu();
+            this.NavigationService.Navigate(autmenu);
+        }
+
+        private void ButtonToCabinet_Click(object sender, RoutedEventArgs e)
+        {
+            Cabinet cab = new Cabinet();
+            this.NavigationService.Navigate(cab);
+        }
+
+        private void ButtonConAutBook_Click(object sender, RoutedEventArgs e)
+        {
+            AdminAuthorBookConnection autconbook = new AdminAuthorBookConnection();
+            this.NavigationService.Navigate(autconbook);
+        }
+
+        private void ButtonOrders_Click(object sender, RoutedEventArgs e)
+        {
+            AdminOrders orderpage = new AdminOrders();
+            this.NavigationService.Navigate(orderpage);
+        }
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
+    }
+}
